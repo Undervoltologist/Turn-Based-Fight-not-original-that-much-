@@ -1,6 +1,6 @@
 using System;
 
-namespace TurnBased
+namespace turnbasedepicfight
 {
     internal class Program
     {
@@ -14,16 +14,17 @@ namespace TurnBased
 
             int healAmount = 5;
 
-            int dodge = 0;
-
             Random random = new Random();
             
             while(playerHp > 0 && enemyHp > 0)
-            {
+             { 
+                int dodge = 0;
+
                 // Player turn
-                Console.WriteLine("-_- Player turn -_-"); 
+                Console.WriteLine("-_- Player's turn -_-"); 
                 System.Console.WriteLine();
                 Console.WriteLine("Player Hp - " + playerHp + ". Enemy Hp - " + enemyHp );
+                System.Console.WriteLine();
                 System.Console.WriteLine();
                 System.Console.WriteLine();
                 Console.WriteLine("Enter 'a' to attack or 'h' to heal or 'd' to dodge. -.-");
@@ -44,7 +45,7 @@ namespace TurnBased
                 }
                 if(choice == "d")
                 {
-                    playerHp += dodge;
+                    dodge++;
                     System.Console.WriteLine("Player dodges the Enemy attack!");
                     System.Console.WriteLine();
                 }
@@ -59,9 +60,11 @@ namespace TurnBased
                     
                     if(enemyChoice == 0)
                     {
+                        if(dodge==0){
                         playerHp -= enemyAttack;
                         Console.WriteLine("Enemy attacks and deals " + enemyAttack + " damage! ~-~");
                         System.Console.WriteLine();
+                    }
 
                     }
                     if(enemyChoice == 1)
@@ -72,7 +75,7 @@ namespace TurnBased
                     }
                     if(enemyChoice == 2)
                     {
-                        enemyHp += dodge;
+                        dodge++;
                         System.Console.WriteLine("Enemy dodges Player's attack!");
                     }
                 }
