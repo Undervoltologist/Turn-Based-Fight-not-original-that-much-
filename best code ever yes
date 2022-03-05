@@ -6,8 +6,8 @@ namespace turnbasedepicfight
     {
         static void Main(string[] args)
         {
-            int playerHp = 40;
-            int enemyHp = 20;
+            int playerHp = 45;
+            int enemyHp = 45;
 
             int playerAttack = 5;
             int enemyAttack = 5;
@@ -21,26 +21,26 @@ namespace turnbasedepicfight
                 int dodge = 0;
 
                 // Player turn
-                Console.WriteLine("-_- Player's turn -_-"); 
+                Console.WriteLine("~-- Player's turn --~"); 
                 System.Console.WriteLine();
                 Console.WriteLine("Player Hp - " + playerHp + ". Enemy Hp - " + enemyHp );
                 System.Console.WriteLine();
                 System.Console.WriteLine();
                 System.Console.WriteLine();
-                Console.WriteLine("Enter 'a' to attack or 'h' to heal or 'd' to dodge. -.-");
+                Console.WriteLine("Enter 'a' to attack or 'h' to heal or 'd' to dodge.");
 
                 string choice = Console.ReadLine();
 
                 if(choice == "a")
                 {
                     enemyHp -= playerAttack;
-                    Console.WriteLine("Player attacks enemy and deals " + playerAttack + " damage! o.o");
+                    Console.WriteLine("Player attacks enemy and deals " + playerAttack + " damage!");
                     System.Console.WriteLine();
                 }
                 if(choice == "h")
                 {
                     playerHp += healAmount;
-                    Console.WriteLine("Player restores " + healAmount + " health points. ;-;");
+                    Console.WriteLine("Player restores " + healAmount + " health points.");
                     System.Console.WriteLine();
                 }
                 if(choice == "d")
@@ -53,16 +53,16 @@ namespace turnbasedepicfight
                 // Enemy turn
                 if(enemyHp > 0)
                 {
-                    Console.WriteLine("-_- Enemy turn -_-");
+                    Console.WriteLine("~-- Enemy turn --~");
                     System.Console.WriteLine();
                     System.Console.WriteLine();
                     int enemyChoice = random.Next(0, 3);
                     
                     if(enemyChoice == 0)
                     {
-                        if(dodge==0){
+                        {
                         playerHp -= enemyAttack;
-                        Console.WriteLine("Enemy attacks and deals " + enemyAttack + " damage! ~-~");
+                        Console.WriteLine("Enemy attacks and deals " + enemyAttack + " damage!");
                         System.Console.WriteLine();
                     }
 
@@ -70,13 +70,14 @@ namespace turnbasedepicfight
                     if(enemyChoice == 1)
                     {
                         enemyHp += healAmount;
-                        Console.WriteLine("Enemy restores " + healAmount + " health! >_<");
+                        Console.WriteLine("Enemy restores " + healAmount + " health! ;-;");
                         System.Console.WriteLine();
                     }
                     if(enemyChoice == 2)
                     {
                         dodge++;
-                        System.Console.WriteLine("Enemy dodges Player's attack!");
+                        System.Console.WriteLine("Enemy is not able to dodge the Player's powerful attack!");
+                        System.Console.WriteLine();
                     }
                 }
 
