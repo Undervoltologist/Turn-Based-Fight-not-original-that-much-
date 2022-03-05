@@ -1,0 +1,83 @@
+using System;
+
+namespace TurnBased
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int playerHp = 40;
+            int enemyHp = 20;
+
+            int playerAttack = 5;
+            int enemyAttack = 5;
+
+            int healAmount = 5;
+
+            int dodge = 0;
+
+            Random random = new Random();
+            
+            while(playerHp > 0 && enemyHp > 0)
+            {
+                // Player turn
+                Console.WriteLine("-_- Player turn -_-"); 
+                System.Console.WriteLine();
+                Console.WriteLine("Player Hp - " + playerHp + ". Enemy Hp - " + enemyHp );
+                System.Console.WriteLine();
+                System.Console.WriteLine();
+                Console.WriteLine("Enter 'a' to attack or 'h' to heal or 'd' to dodge. -.-");
+
+                string choice = Console.ReadLine();
+
+                if(choice == "a")
+                {
+                    enemyHp -= playerAttack;
+                    Console.WriteLine("Player attacks enemy and deals " + playerAttack + " damage! o.o");
+                    System.Console.WriteLine();
+                }
+                if(choice == "h")
+                {
+                    playerHp += healAmount;
+                    Console.WriteLine("Player restores " + healAmount + " health points. ;-;");
+                    System.Console.WriteLine();
+                }
+                if(choice == "d")
+                {
+                    playerHp += dodge;
+                    System.Console.WriteLine("Player dodges the Enemy attack!");
+                    System.Console.WriteLine();
+                }
+
+                // Enemy turn
+                if(enemyHp > 0)
+                {
+                    Console.WriteLine("-_- Enemy turn -_-");
+                    System.Console.WriteLine();
+                    System.Console.WriteLine();
+                    int enemyChoice = random.Next(0, 3);
+                    
+                    if(enemyChoice == 0)
+                    {
+                        playerHp -= enemyAttack;
+                        Console.WriteLine("Enemy attacks and deals " + enemyAttack + " damage! ~-~");
+                        System.Console.WriteLine();
+
+                    }
+                    if(enemyChoice == 1)
+                    {
+                        enemyHp += healAmount;
+                        Console.WriteLine("Enemy restores " + healAmount + " health! >_<");
+                        System.Console.WriteLine();
+                    }
+                    if(enemyChoice == 2)
+                    {
+                        enemyHp += dodge;
+                        System.Console.WriteLine("Enemy dodges Player's attack!");
+                    }
+                }
+
+            }
+        }
+    }
+}
