@@ -1,4 +1,4 @@
 # Turn-Based-Fight-not-original-that-much-
-TURN BASED EPIC AI FIGHT
+TURN BASED FIGHT
 
-definitely works without issue yes ;-;
+Includes Attack, Healing, and Dodging.
